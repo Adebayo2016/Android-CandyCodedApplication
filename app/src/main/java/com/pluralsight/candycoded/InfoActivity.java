@@ -28,6 +28,14 @@ public class InfoActivity extends AppCompatActivity {
     // ***
     // TODO - Task 2 - Launch the Google Maps Activity
     // ***
+    public void createMapIntent(View view){
+        Uri uriAddress= Uri.parse("geo:0,0?q=618 E south st orlando,FL 333302");
+        Intent mapIntent=new Intent(Intent.ACTION_VIEW, uriAddress);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager())!=null){
+            startActivity(mapIntent);
+        }
+    }
 
 
     // ***
@@ -35,12 +43,5 @@ public class InfoActivity extends AppCompatActivity {
     // ***
 
 
-public void createMapIntent(View view){
-  Uri uriAddress= Uri.parse("geo:0,0?q=618 E south st orlando,FL 333302");
-    Intent mapIntent=new Intent(Intent.ACTION_VIEW, uriAddress);
-    mapIntent.setPackage("com.google.android.apps.maps");
-    if (mapIntent.resolveActivity(getPackageManager())!=null){
-        startActivity(mapIntent);
-    }
-}
+
 }
